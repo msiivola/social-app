@@ -24,6 +24,6 @@ var server = app.listen(3000, function() {
 })
 
 // Add WebSockets to the server
-ws.connect(server)
+//ws.connect(server)
 
 // Test comment #1
