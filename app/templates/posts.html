@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Recent Posts</h1>
+    
+
+    <audio id="player">
+        <!-- <source src="horse.ogg" type="audio/ogg"> -->
+        <source></source>
+        Your browser does not support the audio element.
+    </audio>
+      
+    <form role="form">
+        <div class="form-group">
+            <div class="input-group">
+                <input ng-model="postBody" class="form-control" />
+                <div class="input-group-btn">
+                    <button onclick="playAudio()" ng-click="addPost()" class="btn btn-default">Add Post</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <ul class="list-group">
+        <li ng-repeat="post in posts" class="list-group-item">
+            <strong>@{{ post.user_id.username }}</strong> <!-- The username field is under the user_id object (see the GET part of posts.js) -->
+            <span>{{ post.body }}</span>
+            <span style="font-size: 9px; color: #bbb;">{{ post.date }}</span>
+        </li>
+    </ul>
+</div>

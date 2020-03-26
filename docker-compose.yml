@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+        - mongodb_data_container:/data/db
+    # ports:
+    #     - 27017:27017
+  app:
+    build: 
+        context: ./app
+    ports: 
+      - 3000:3000
+    depends_on: 
+      - mongo
+volumes:
+  mongodb_data_container:
